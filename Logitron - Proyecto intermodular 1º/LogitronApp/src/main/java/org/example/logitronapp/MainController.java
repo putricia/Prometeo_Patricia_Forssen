@@ -41,29 +41,50 @@ public class MainController implements Initializable {
 
             String user = editUsuario.getText().toLowerCase().trim();
             String clave = editClave.getText();
-            String response = "";
 
             if (user.isEmpty()  || clave.isEmpty()) {
                 txtFeedback.setText("Escribe un nombre de usuario y una clave");
-            } else if (user.equals("patricia") && clave.equals("clave")) {
-                txtFeedback.setText(String.format("Bienvenida %s", user));
-                try {
-                    FXMLLoader loader = new FXMLLoader(
-                            HelloApplication.class.getResource("main-logistic-view.fxml")
-                    );
-                    Parent root = loader.load();
+                return;
+            }
 
-                    Stage stage = (Stage) btnAcceso.getScene().getWindow();
-                    stage.setScene(new Scene(root));
-                    stage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    txtFeedback.setText("No se pudo cargar la pantalla de logistica");
+            // hacemos el control de login a través del metodo validarLogin en la clase LoginAction
+            String rol = LoginAction.validarLogin(user, clave);
+
+            if (rol != null) {
+                txtFeedback.setText(String.format("Bienvenida %s", user));
+
+                switch (rol) {
+                    case "admin":
+                        loadView("main-admin-view.fxml");
+                        break;
+                    case "vendedor":
+                        loadView("main-sales-view.fxml");
+                        break;
+                    case "picker":
+                        loadView("main-logistic-view.fxml");
+                        break;
+                    case "finanzas":
+                        loadView("main-finanzas-view.fxml");
+                        break;
                 }
+
             } else {
                 txtFeedback.setText("El usuario no existe o la clave es incorrecta");
             }
 
         });
     }
+
+    private void loadView(String fxml) {
+        try {
+            FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("/org/example/logitronapp/" + fxml));
+            Parent root = loader.load();
+            Stage stage = (Stage) btnAcceso.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

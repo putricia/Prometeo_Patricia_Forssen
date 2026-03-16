@@ -1,0 +1,31 @@
+<facturas>
+
+    <factura id="2">
+        <id_pedido>1</id_pedido>
+        <fecha_factura>2026-03-16</fecha_factura>
+        <importe_total>11.98</importe_total>
+        <pagado>false</pagado>
+    </factura>
+
+    <factura id="3">
+        <id_pedido>2</id_pedido>
+        <fecha_factura>2026-03-16</fecha_factura>
+        <importe_total>52.00</importe_total>
+        <pagado>true</pagado>
+    </factura>
+
+    <factura id="4">
+        <id_pedido>3</id_pedido>
+        <fecha_factura>2026-03-16</fecha_factura>
+        <importe_total>61.98</importe_total>
+        <pagado>true</pagado>
+    </factura>
+
+    <factura id="5">
+        <id_pedido>4</id_pedido>
+        <fecha_factura>2026-03-16</fecha_factura>
+        <importe_total>48.00</importe_total>
+        <pagado>true</pagado>
+    </factura>
+
+</facturas>

@@ -1,0 +1,66 @@
+<lineas_pedido>
+
+    <linea>
+        <id_pedido>1</id_pedido>
+        <id_articulo>1</id_articulo>
+        <unidades>3</unidades>
+        <descuento_importe>0.00</descuento_importe>
+    </linea>
+
+    <linea>
+        <id_pedido>1</id_pedido>
+        <id_articulo>2</id_articulo>
+        <unidades>3</unidades>
+        <descuento_importe>0.00</descuento_importe>
+    </linea>
+
+    <linea>
+        <id_pedido>2</id_pedido>
+        <id_articulo>3</id_articulo>
+        <unidades>1</unidades>
+        <descuento_importe>2.50</descuento_importe>
+    </linea>
+
+    <linea>
+        <id_pedido>2</id_pedido>
+        <id_articulo>4</id_articulo>
+        <unidades>1</unidades>
+        <descuento_importe>0.00</descuento_importe>
+    </linea>
+
+    <linea>
+        <id_pedido>3</id_pedido>
+        <id_articulo>1</id_articulo>
+        <unidades>5</unidades>
+        <descuento_importe>0.99</descuento_importe>
+    </linea>
+
+    <linea>
+        <id_pedido>3</id_pedido>
+        <id_articulo>2</id_articulo>
+        <unidades>5</unidades>
+        <descuento_importe>0.99</descuento_importe>
+    </linea>
+
+    <linea>
+        <id_pedido>3</id_pedido>
+        <id_articulo>3</id_articulo>
+        <unidades>2</unidades>
+        <descuento_importe>2.50</descuento_importe>
+    </linea>
+
+    <linea>
+        <id_pedido>3</id_pedido>
+        <id_articulo>6</id_articulo>
+        <unidades>1</unidades>
+        <descuento_importe>2.50</descuento_importe>
+    </linea>
+
+    <linea>
+        <id_pedido>4</id_pedido>
+        <id_articulo>6</id_articulo>
+        <unidades>2</unidades>
+        <descuento_importe>4.00</descuento_importe>
+    </linea>
+
+</lineas_pedido>

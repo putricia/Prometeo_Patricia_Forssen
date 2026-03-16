@@ -1,0 +1,51 @@
+<articulos>
+
+    <articulo id="1">
+        <nombre>Vela aromática fresa</nombre>
+        <uds_stock>100</uds_stock>
+        <precio_compra>5.99</precio_compra>
+        <precio_venta>3.99</precio_venta>
+        <por_peso>false</por_peso>
+    </articulo>
+
+    <articulo id="2">
+        <nombre>Vela aromática mango</nombre>
+        <uds_stock>100</uds_stock>
+        <precio_compra>2.99</precio_compra>
+        <precio_venta>5.99</precio_venta>
+        <por_peso>false</por_peso>
+    </articulo>
+
+    <articulo id="3">
+        <nombre>Pack 100 tenedores</nombre>
+        <uds_stock>30</uds_stock>
+        <precio_compra>10.00</precio_compra>
+        <precio_venta>15.00</precio_venta>
+        <por_peso>false</por_peso>
+    </articulo>
+
+    <articulo id="4">
+        <nombre>Pack 100 cuchillos</nombre>
+        <uds_stock>25</uds_stock>
+        <precio_compra>11.00</precio_compra>
+        <precio_venta>17.00</precio_venta>
+        <por_peso>false</por_peso>
+    </articulo>
+
+    <articulo id="5">
+        <nombre>Pack 100 cucharas</nombre>
+        <uds_stock>35</uds_stock>
+        <precio_compra>10.00</precio_compra>
+        <precio_venta>15.00</precio_venta>
+        <por_peso>false</por_peso>
+    </articulo>
+
+    <articulo id="6">
+        <nombre>100 Servilletas</nombre>
+        <uds_stock>113</uds_stock>
+        <precio_compra>17.00</precio_compra>
+        <precio_venta>25.00</precio_venta>
+        <por_peso>false</por_peso>
+    </articulo>
+
+</articulos>

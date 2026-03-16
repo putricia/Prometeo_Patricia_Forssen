@@ -1,0 +1,66 @@
+<personas>
+
+    <persona id="1">
+        <nombre>Juan García López</nombre>
+        <correo>juan.garcia@gmail.com</correo>
+        <telefono>600123001</telefono>
+        <direccion>Calle Mayor 12</direccion>
+        <cp>28001</cp>
+        <ciudad>Madrid</ciudad>
+    </persona>
+
+    <persona id="2">
+        <nombre>María Fernández Ruiz</nombre>
+        <correo>maria.fernandez@gmail.com</correo>
+        <telefono>600123002</telefono>
+        <direccion>Avenida Andalucía 45</direccion>
+        <cp>41001</cp>
+        <ciudad>Sevilla</ciudad>
+    </persona>
+
+    <persona id="3">
+        <nombre>Lucía Martínez Pérez</nombre>
+        <correo>lucia.martinez@gmail.com</correo>
+        <telefono>600123003</telefono>
+        <direccion>Calle Gran Vía 7</direccion>
+        <cp>46001</cp>
+        <ciudad>Valencia</ciudad>
+    </persona>
+
+    <persona id="4">
+        <nombre>José Sánchez Gómez</nombre>
+        <correo>admin@logitron.com</correo>
+        <telefono>600123004</telefono>
+        <direccion>Calle Alcalá 32</direccion>
+        <cp>28002</cp>
+        <ciudad>Madrid</ciudad>
+    </persona>
+
+    <persona id="5">
+        <nombre>Francisco López Díaz</nombre>
+        <correo>vendedor@logitron.com</correo>
+        <telefono>600123005</telefono>
+        <direccion>Calle Serrano 21</direccion>
+        <cp>28006</cp>
+        <ciudad>Madrid</ciudad>
+    </persona>
+
+    <persona id="6">
+        <nombre>Javier Rodríguez Moreno</nombre>
+        <correo>picker@logitron.com</correo>
+        <telefono>600123006</telefono>
+        <direccion>Calle Aragón 18</direccion>
+        <cp>08010</cp>
+        <ciudad>Barcelona</ciudad>
+    </persona>
+
+    <persona id="7">
+        <nombre>Sandra Torres Jiménez</nombre>
+        <correo>finanzas@logitron.com</correo>
+        <telefono>600123007</telefono>
+        <direccion>Calle Colón 5</direccion>
+        <cp>46002</cp>
+        <ciudad>Valencia</ciudad>
+    </persona>
+
+</personas>
