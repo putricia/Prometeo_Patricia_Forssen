@@ -1,4 +1,4 @@
-package org.example.logitronapp;
+package org.example.logitronapp.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +11,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.example.logitronapp.HelloApplication;
+import org.example.logitronapp.LoginAction;
 
 import java.io.IOException;
 import java.net.URL;

@@ -1,4 +1,4 @@
-package org.example.logitronapp;
+package org.example.logitronapp.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
