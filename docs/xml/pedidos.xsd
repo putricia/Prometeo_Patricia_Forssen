@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="pedidos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="pedido" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="plataforma" type="tipoPlataforma"/>
+                            <xs:element name="fechaPedido" type="xs:date"/>
+                            <xs:element name="estadoLogistico" type="tipoEstadoLogistico"/>
+                            <xs:element name="estadoFinanciero" type="tipoEstadoFinanciero"/>
+                            <xs:element name="cliente" type="tipoCliente"/>
+                            <xs:element name="direccionEnvio" type="tipoDireccion"/>
+                            <xs:element name="productos" type="tipoProductos"/>
+                            <xs:element name="total" type="tipoImporte"/>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="tipoIdPedido" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="fechaGeneracion" type="xs:date" use="required"/>
+            <xs:attribute name="sistema" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="tipoIdPedido">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="PED-[0-9]{4}-[0-9]{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoPlataforma">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Shopify"/>
+            <xs:enumeration value="TikTokShop"/>
+            <xs:enumeration value="Manual"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoEstadoLogistico">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="PENDIENTE_ENVIO"/>
+            <xs:enumeration value="EN_PREPARACION"/>
+            <xs:enumeration value="ENVIADO"/>
+            <xs:enumeration value="ENTREGADO"/>
+            <xs:enumeration value="CANCELADO"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoEstadoFinanciero">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="PENDIENTE_PAGO"/>
+            <xs:enumeration value="PAGADO"/>
+            <xs:enumeration value="REEMBOLSADO"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="tipoCliente">
+        <xs:sequence>
+            <xs:element name="nombre">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="2"/>
+                        <xs:maxLength value="80"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="email" type="tipoEmail"/>
+            <xs:element name="telefono" type="tipoTelefono" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tipoEmail">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoTelefono">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{9}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="tipoDireccion">
+        <xs:sequence>
+            <xs:element name="calle" type="xs:string"/>
+            <xs:element name="ciudad" type="xs:string"/>
+            <xs:element name="codigoPostal" type="tipoCodigoPostal"/>
+            <xs:element name="pais" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tipoCodigoPostal">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{5}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="tipoProductos">
+        <xs:sequence>
+            <xs:element name="producto" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="nombre" type="xs:string"/>
+                        <xs:element name="cantidad">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:positiveInteger">
+                                    <xs:minInclusive value="1"/>
+                                    <xs:maxInclusive value="999"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                        <xs:element name="precioUnitario" type="tipoImporte"/>
+                    </xs:sequence>
+                    <xs:attribute name="sku" type="tipoSku" use="required"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="tipoSku">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="SKU-[A-Z]{3}-[0-9]{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="tipoImporte">
+        <xs:simpleContent>
+            <xs:extension base="tipoDecimalPositivo">
+                <xs:attribute name="moneda" use="required">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="EUR"/>
+                            <xs:enumeration value="USD"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:simpleType name="tipoDecimalPositivo">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0.01"/>
+            <xs:fractionDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

@@ -1,0 +1,27 @@
+<pedidos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="pedidos.xsd" fechaGeneracion="2026-05-02" sistema="Logitron">
+    <pedido id="PEDIDO-1">
+        <plataforma>Amazon</plataforma>
+        <fechaPedido>29-04-2026</fechaPedido>
+        <estadoLogistico>PREPARANDO</estadoLogistico>
+        <estadoFinanciero>PAGADO</estadoFinanciero>
+        <cliente>
+            <nombre>C</nombre>
+            <email>correo-no-valido</email>
+            <telefono>123</telefono>
+        </cliente>
+        <direccionEnvio>
+            <calle>Avenida del Puerto 10</calle>
+            <ciudad>Valencia</ciudad>
+            <codigoPostal>46ABC</codigoPostal>
+            <pais>España</pais>
+        </direccionEnvio>
+        <productos>
+            <producto sku="001">
+                <nombre>Caja de embalaje mediana</nombre>
+                <cantidad>0</cantidad>
+                <precioUnitario moneda="GBP">-3.25</precioUnitario>
+            </producto>
+        </productos>
+        <total moneda="EUR">0.00</total>
+    </pedido>
+</pedidos>

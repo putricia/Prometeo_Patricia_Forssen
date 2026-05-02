@@ -1,0 +1,155 @@
+# Logitron - XML de pedidos
+
+Aqui
+
+El XML representa una **exportación de pedidos** registrados en la aplicación. La finalidad es disponer de un formato estructurado que pueda utilizarse para intercambiar información entre departamentos o generar reportes externos.
+
+---
+
+## Archivos incluidos
+
+```text
+logitron-xml/
+├── README.md
+├── pedidos.xml
+├── pedidos.xsd
+├── pedidos_invalido.xml
+└── capturas/
+    ├── validacion_correcta.png
+    └── validacion_error.png
+```
+
+| Archivo | Descripción |
+|---|---|
+| `pedidos.xml` | XML válido con pedidos realistas de Logitron |
+| `pedidos.xsd` | Esquema XSD que define estructura, tipos y restricciones |
+| `pedidos_invalido.xml` | XML preparado para fallar la validación |
+| `capturas/` | Carpeta donde se pueden guardar evidencias de validación |
+
+---
+
+## Qué datos representa el XML
+
+El archivo `pedidos.xml` representa pedidos procedentes de plataformas externas o registros manuales dentro de Logitron.
+
+Cada pedido contiene:
+
+- Identificador del pedido
+- Plataforma de origen: Shopify, TikTokShop o Manual
+- Fecha del pedido
+- Estado logístico
+- Estado financiero
+- Datos del cliente
+- Dirección de envío
+- Lista de productos
+- Total del pedido
+
+Ejemplo de relación con la aplicación:
+
+- **Logística** puede usar el XML para revisar pedidos pendientes o en preparación.
+- **Finanzas** puede consultar el estado de pago de cada pedido.
+- **Inventario** puede analizar los productos y cantidades solicitadas.
+
+---
+
+## Cómo se valida
+
+La validación se realiza mediante el archivo `pedidos.xsd`.
+
+El XSD comprueba que el XML cumpla la estructura esperada y que sus datos tengan formatos correctos.
+
+Restricciones incluidas:
+
+| Campo | Validación |
+|---|---|
+| `pedido/@id` | Patrón `PED-AAAA-NNNN`, por ejemplo `PED-2026-0001` |
+| `plataforma` | Solo permite `Shopify`, `TikTokShop` o `Manual` |
+| `fechaPedido` | Debe ser fecha en formato `YYYY-MM-DD` |
+| `estadoLogistico` | Valores cerrados mediante enumeración |
+| `estadoFinanciero` | Valores cerrados mediante enumeración |
+| `email` | Debe cumplir formato básico de correo electrónico |
+| `telefono` | Debe tener 9 dígitos |
+| `codigoPostal` | Debe tener 5 dígitos |
+| `sku` | Patrón `SKU-AAA-999` |
+| `cantidad` | Número entero positivo entre 1 y 999 |
+| `precioUnitario` | Decimal positivo con 2 decimales |
+| `moneda` | Solo permite `EUR` o `USD` |
+
+---
+
+## Evidencia de validación
+
+Para demostrar la validación se incluyen dos archivos:
+
+### XML válido
+
+`pedidos.xml` debe validar correctamente contra `pedidos.xsd`.
+
+### XML inválido
+
+`pedidos_invalido.xml` debe fallar porque contiene errores intencionados:
+
+- ID de pedido con formato incorrecto
+- Plataforma no permitida (`Amazon`)
+- Fecha con formato incorrecto
+- Estado logístico no permitido
+- Email inválido
+- Teléfono inválido
+- Código postal inválido
+- SKU inválido
+- Cantidad igual a 0
+- Moneda no permitida
+- Total igual a 0.00
+
+---
+
+## Validación con herramienta online
+
+Se puede validar usando cualquier validador XML/XSD online.
+
+Pasos:
+
+1. Abrir un validador XML con soporte XSD.
+2. Copiar el contenido de `pedidos.xml`.
+3. Copiar el contenido de `pedidos.xsd`.
+4. Ejecutar la validación.
+5. Guardar captura del resultado correcto en `capturas/validacion_correcta.png`.
+6. Repetir el proceso con `pedidos_invalido.xml`.
+7. Guardar captura del error en `capturas/validacion_error.png`.
+
+---
+
+## Integración con Logitron
+
+Dentro del proyecto Logitron, este XML se plantea como un formato de **exportación/importación de pedidos**.
+
+La aplicación podría generar este XML a partir de los datos almacenados en la base de datos MySQL. De esta forma, los pedidos podrían compartirse entre departamentos o integrarse con otros sistemas internos.
+
+Aunque en esta entrega no se implementa la generación automática desde la aplicación, la estructura XML está diseñada para representar datos reales del sistema y podría integrarse posteriormente en el backend de Logitron.
+
+Flujo conceptual:
+
+```text
+Base de datos Logitron → Backend Spring Boot → Exportación XML → Validación XSD
+```
+
+---
+
+## Relación con la base de datos
+
+El XML representa entidades que existirían en la base de datos de Logitron:
+
+| XML | Tabla en base de datos |
+|---|---|
+| `pedido` | `pedidos` |
+| `cliente` | `clientes` |
+| `direccionEnvio` | `direcciones_envio` |
+| `producto` | `productos` |
+| `estadoLogistico` | `estados_logisticos` |
+| `estadoFinanciero` | `estados_financieros` |
+
+---
+
+## Estado del proyecto
+
+Este módulo XML es una propuesta documental y técnica para demostrar cómo Logitron podría intercambiar información estructurada mediante XML y validarla mediante XSD.
