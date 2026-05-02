@@ -9,4 +9,4 @@
 
 El sistema permite que distintos departamentos (logística, finanzas, comercial, etc.) trabajen de forma simultánea sobre una única fuente de datos.
 
----
+Para leer sobre su entorno de ejecución, requisitos y documentación del sistema, accede a docs/sistemas y abre el archivo markdown "Informe Técnico del entorno de ejecución".
