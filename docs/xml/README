@@ -105,27 +105,24 @@ Para demostrar la validación se incluyen dos archivos:
 
 ## Validación con herramienta online
 
-Se puede validar usando cualquier validador XML/XSD online.
+Se puede validar usando cualquier validador XML/XSD online. Ejemplo: https://xmlable.com/xsd/
 
 Pasos:
 
-1. Abrir un validador XML con soporte XSD.
-2. Copiar el contenido de `pedidos.xml`.
-3. Copiar el contenido de `pedidos.xsd`.
-4. Ejecutar la validación.
-5. Guardar captura del resultado correcto en `capturas/validacion_correcta.png`.
-6. Repetir el proceso con `pedidos_invalido.xml`.
-7. Guardar captura del error en `capturas/validacion_error.png`.
+1. Copiar el contenido de `pedidos.xml`.
+2. Copiar el contenido de `pedidos.xsd`.
+3. En el momento mostrará si el XDS trabaja acorde con el XML.
 
 ---
 
 ## Integración con Logitron
 
-Dentro del proyecto Logitron, este XML se plantea como un formato de **exportación/importación de pedidos**.
+Dentro del proyecto Logitron, este XML se plantea como un formato de exportación/importación de pedidos.
 
 La aplicación podría generar este XML a partir de los datos almacenados en la base de datos MySQL. De esta forma, los pedidos podrían compartirse entre departamentos o integrarse con otros sistemas internos.
 
-Aunque en esta entrega no se implementa la generación automática desde la aplicación, la estructura XML está diseñada para representar datos reales del sistema y podría integrarse posteriormente en el backend de Logitron.
+Aunque en esta entrega no se implementa la generación desde la aplicación, la estructura XML está diseñada para representar datos reales del sistema y podría integrarse posteriormente en el backend de Logitron. Los datos presentados
+se han generado con ayuda de la IA, adaptándolo al modelo de este sistema particular.
 
 Flujo conceptual:
 
