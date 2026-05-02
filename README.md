@@ -1,7 +1,5 @@
 # 🧾 Logitron
 
-## Descripción
-
 **Logitron** es una aplicación de gestión empresarial diseñada para centralizar:
 
 - Registro de pedidos
