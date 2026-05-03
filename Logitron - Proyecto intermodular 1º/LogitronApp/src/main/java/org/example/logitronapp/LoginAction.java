@@ -15,15 +15,14 @@ public class LoginAction {
 
     public static String validarLogin(String user, String clave) {
         try {
-            // ubicamos el archivo que vamos a leer
             File xml_personas = new File("src/main/resources/personas.xml");
 
-            // creamos una "fabrica de lectores de xml"
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             // creamos el lector de xml
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
-            // Parseamos el XML
             Document docPersonas = builder.parse(xml_personas);
+
+            docPersonas.getDocumentElement().normalize();
 
             // buscamos todos los nodos "persona"
             NodeList personas = docPersonas.getElementsByTagName("persona");
@@ -34,17 +33,20 @@ public class LoginAction {
             // iteramos todas las personas
             for (int i = 0; i < personas.getLength(); i++) {
 
-                // convertimos el nodo en eun elemento XML
                 Element persona = (Element) personas.item(i);
 
-                // obtenemos el correo de ese elemento
                 String correoXML = persona
                         .getElementsByTagName("correo")
                         .item(0) // el primer elemento dentro de el elemento "correo"
                         .getTextContent();
 
+                String claveXML = persona
+                        .getElementsByTagName("clave")
+                        .item(0)
+                        .getTextContent();
+
                 // comparamos el correo del elemento con el que hace login ignoreando mayusculas y omitiendo espacios en blanco
-                if (correoXML.equals(user.trim().toLowerCase())) {
+                if (correoXML.equals(user.trim().toLowerCase()) && claveXML.equals(clave)) {
                     // en caso de coincidir, devolvemos el id de la persona
                     idPersona = persona.getAttribute("id");
                     break;

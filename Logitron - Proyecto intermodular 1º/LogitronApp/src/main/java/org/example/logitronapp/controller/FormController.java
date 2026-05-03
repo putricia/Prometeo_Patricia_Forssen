@@ -87,12 +87,7 @@ public class FormController implements Initializable {
             System.out.println("Usuario creado con exito: " + usuario.getNombre());
             vaciarCampos();
         });
-        btnComprobar.setOnMouseEntered(new ManejoRaton());
-        btnVaciar.setOnMouseEntered(new ManejoRaton());
-        btnAgregar.setOnMouseEntered(new ManejoRaton());
-        btnAgregar.setOnMouseExited(new ManejoRaton());
-        btnVaciar.setOnMouseExited(new ManejoRaton());
-        btnComprobar.setOnMouseExited(new ManejoRaton());
+
 
     }
 
@@ -117,18 +112,4 @@ public class FormController implements Initializable {
         listaRols = FXCollections.observableArrayList("Administrador", "Finanzas", "Logistica", "Comercial");
     }
 
-    class ManejoRaton implements EventHandler<MouseEvent> {
-
-        @Override
-        public void handle(MouseEvent event) {
-            // System.out.println("Raton por encima");
-            if (event.getEventType() == MouseEvent.MOUSE_EXITED) {
-                System.out.println("Saliendo");
-                ((Button) (event.getSource())).setEffect(null);
-            } else if (event.getEventType() == MouseEvent.MOUSE_ENTERED) {
-                System.out.println("Entrando");
-                ((Button) (event.getSource())).setEffect(shadow);
-            }
-        }
-    }
 }

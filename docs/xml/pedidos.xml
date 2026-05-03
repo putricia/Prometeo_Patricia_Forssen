@@ -1,57 +1,39 @@
-<pedidos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="pedidos.xsd" fechaGeneracion="2026-05-02" sistema="Logitron">
-    <pedido id="PED-2026-0001">
-        <plataforma>Shopify</plataforma>
-        <fechaPedido>2026-04-28</fechaPedido>
-        <estadoLogistico>PENDIENTE_ENVIO</estadoLogistico>
-        <estadoFinanciero>PAGADO</estadoFinanciero>
-        <cliente>
-            <nombre>Ana Martínez</nombre>
-            <email>ana.martinez@example.com</email>
-            <telefono>600123456</telefono>
-        </cliente>
-        <direccionEnvio>
-            <calle>Calle Mayor 25</calle>
-            <ciudad>Madrid</ciudad>
-            <codigoPostal>28013</codigoPostal>
-            <pais>España</pais>
-        </direccionEnvio>
-        <productos>
-            <producto sku="SKU-LOG-001">
-                <nombre>Pack organizador de almacén</nombre>
-                <cantidad>2</cantidad>
-                <precioUnitario moneda="EUR">19.99</precioUnitario>
-            </producto>
-            <producto sku="SKU-LOG-004">
-                <nombre>Etiquetas adhesivas</nombre>
-                <cantidad>1</cantidad>
-                <precioUnitario moneda="EUR">7.50</precioUnitario>
-            </producto>
-        </productos>
-        <total moneda="EUR">47.48</total>
+<pedidos>
+
+    <pedido id="1">
+        <id_cliente>1</id_cliente>
+        <id_vendedor>4</id_vendedor>
+        <id_preparador></id_preparador>
+        <fecha_pedido>2026-03-16</fecha_pedido>
+        <fecha_envio></fecha_envio>
+        <estado>pendiente</estado>
     </pedido>
-    <pedido id="PED-2026-0002">
-        <plataforma>TikTokShop</plataforma>
-        <fechaPedido>2026-04-29</fechaPedido>
-        <estadoLogistico>EN_PREPARACION</estadoLogistico>
-        <estadoFinanciero>PENDIENTE_PAGO</estadoFinanciero>
-        <cliente>
-            <nombre>Carlos López</nombre>
-            <email>carlos.lopez@example.com</email>
-            <telefono>611987654</telefono>
-        </cliente>
-        <direccionEnvio>
-            <calle>Avenida del Puerto 10</calle>
-            <ciudad>Valencia</ciudad>
-            <codigoPostal>46023</codigoPostal>
-            <pais>España</pais>
-        </direccionEnvio>
-        <productos>
-            <producto sku="SKU-LOG-002">
-                <nombre>Caja de embalaje mediana</nombre>
-                <cantidad>5</cantidad>
-                <precioUnitario moneda="EUR">3.25</precioUnitario>
-            </producto>
-        </productos>
-        <total moneda="EUR">16.25</total>
+
+    <pedido id="2">
+        <id_cliente>2</id_cliente>
+        <id_vendedor>5</id_vendedor>
+        <id_preparador></id_preparador>
+        <fecha_pedido>2026-03-16</fecha_pedido>
+        <fecha_envio></fecha_envio>
+        <estado>pendiente</estado>
     </pedido>
+
+    <pedido id="3">
+        <id_cliente>1</id_cliente>
+        <id_vendedor>5</id_vendedor>
+        <id_preparador></id_preparador>
+        <fecha_pedido>2026-03-16</fecha_pedido>
+        <fecha_envio></fecha_envio>
+        <estado>pendiente</estado>
+    </pedido>
+
+    <pedido id="4">
+        <id_cliente>3</id_cliente>
+        <id_vendedor>5</id_vendedor>
+        <id_preparador>6</id_preparador>
+        <fecha_pedido>2026-03-16</fecha_pedido>
+        <fecha_envio></fecha_envio>
+        <estado>en_preparacion</estado>
+    </pedido>
+
 </pedidos>

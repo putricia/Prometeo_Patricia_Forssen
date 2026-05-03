@@ -4,19 +4,6 @@ Aqui
 
 El XML representa una **exportación de pedidos** registrados en la aplicación. La finalidad es disponer de un formato estructurado que pueda utilizarse para intercambiar información entre departamentos o generar reportes externos.
 
----
-
-## Archivos incluidos
-
-```text
-logitron-xml/
-├── README.md
-├── pedidos.xml
-├── pedidos.xsd
-├── pedidos_invalido.xml
-└── capturas/
-    ├── validacion_correcta.png
-    └── validacion_error.png
 ```
 
 | Archivo | Descripción |
@@ -24,31 +11,32 @@ logitron-xml/
 | `pedidos.xml` | XML válido con pedidos realistas de Logitron |
 | `pedidos.xsd` | Esquema XSD que define estructura, tipos y restricciones |
 | `pedidos_invalido.xml` | XML preparado para fallar la validación |
-| `capturas/` | Carpeta donde se pueden guardar evidencias de validación |
 
 ---
 
 ## Qué datos representa el XML
 
-El archivo `pedidos.xml` representa pedidos procedentes de plataformas externas o registros manuales dentro de Logitron.
+El archivo `pedidos.xml` representa pedidos procedentes de registros manuales dentro de Logitron.
+Por claridad, hay junto con este fichero README unos ejemplos reales de pedidos.xml,
+pedidos_invalidos.xml y pedidos.xsd.
+Todos los archivos xml utilizados se encuentran en "Logitron-Proyecto intermodular 1º"/LogitronApp[TiendaApp]/src/main/resources.
 
 Cada pedido contiene:
 
 - Identificador del pedido
-- Plataforma de origen: Shopify, TikTokShop o Manual
-- Fecha del pedido
-- Estado logístico
-- Estado financiero
-- Datos del cliente
-- Dirección de envío
-- Lista de productos
-- Total del pedido
+- Identificador del articulo
+- Numero de unidades
+- Descuento aplicado
+
+El precio total de un pedido está en la factura, la cual va asociada al pedido a través del
+id de éste.
 
 Ejemplo de relación con la aplicación:
 
 - **Logística** puede usar el XML para revisar pedidos pendientes o en preparación.
-- **Finanzas** puede consultar el estado de pago de cada pedido.
-- **Inventario** puede analizar los productos y cantidades solicitadas.
+    Tambien podrá comprobar las existencias de cada artiuclo.
+- **Comercial**  es quien carga esta información a travñes de su interfaz en
+    la aplicaicon Logitron.
 
 ---
 

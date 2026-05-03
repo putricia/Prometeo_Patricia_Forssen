@@ -1,23 +1,19 @@
 <empleados>
 
-    <empleado id="4">
+    <empleado id="1">
         <rol>admin</rol>
-        <clave>claveAdmin</clave>
     </empleado>
 
-    <empleado id="5">
+    <empleado id="2">
         <rol>vendedor</rol>
-        <clave>claveVendedor</clave>
     </empleado>
 
-    <empleado id="6">
+    <empleado id="3">
         <rol>picker</rol>
-        <clave>clavePicker</clave>
     </empleado>
 
-    <empleado id="7">
+    <empleado id="4">
         <rol>finanzas</rol>
-        <clave>claveFinanzas</clave>
     </empleado>
 
 </empleados>

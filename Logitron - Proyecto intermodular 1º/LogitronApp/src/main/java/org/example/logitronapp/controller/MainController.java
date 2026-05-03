@@ -26,12 +26,6 @@ public class MainController implements Initializable {
     private TextField editUsuario, editClave;
 
     @FXML
-    private VBox vBox;
-
-    @FXML
-    private HBox hBox;
-
-    @FXML
     private Text txtFeedback;
 
     @Override
