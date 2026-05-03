@@ -63,53 +63,10 @@ public class FormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        instances();
-        initGUI();
         actions();
     }
 
     private void actions() {
-        btnComprobar.setOnAction(event -> {
-
-        });
-        btnVaciar.setOnAction(event -> {
-            vaciarCampos();
-        });
-        btnAgregar.setOnAction(event -> {
-            // comprobar que todos los campos estan rellenos
-            String nombre = editNombre.getText();
-            String correo = editCorreo.getText();
-            String direccion = editDireccion.getText();
-            String clave = editClave.getText();
-            String rol = comboRol.getSelectionModel().getSelectedItem();
-            String genero = ((RadioButton) (grupoGenero.getSelectedToggle())).getText();
-            Usuario usuario = new Usuario(nombre, correo, direccion, clave, rol, genero);
-            System.out.println("Usuario creado con exito: " + usuario.getNombre());
-            vaciarCampos();
-        });
-
-
-    }
-
-    private void vaciarCampos() {
-        editNombre.clear();
-        editCorreo.clear();
-        editClave.clear();
-        editDireccion.clear();
-        spinnerEdad.increment(-90);
-        comboRol.getSelectionModel().select(0);
-        grupoGenero.selectToggle(null);
-    }
-
-    private void initGUI() {
-        grupoGenero.getToggles().addAll(radioFemenino, radioMasculino);
-        comboRol.setItems(listaRols);
-    }
-
-    private void instances() {
-        shadow = new DropShadow();
-        grupoGenero = new ToggleGroup();
-        listaRols = FXCollections.observableArrayList("Administrador", "Finanzas", "Logistica", "Comercial");
     }
 
 }

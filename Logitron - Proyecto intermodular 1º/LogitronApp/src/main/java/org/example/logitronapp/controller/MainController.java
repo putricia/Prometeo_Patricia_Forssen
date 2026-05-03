@@ -50,16 +50,16 @@ public class MainController implements Initializable {
                 txtFeedback.setText(String.format("Bienvenida %s", user));
 
                 switch (rol) {
-                    case "admin":
+                    case "1":
                         loadView("main-admin-view.fxml");
                         break;
-                    case "vendedor":
+                    case "2":
                         loadView("main-sales-view.fxml");
                         break;
-                    case "picker":
+                    case "3":
                         loadView("main-logistic-view.fxml");
                         break;
-                    case "finanzas":
+                    case "4":
                         loadView("main-finanzas-view.fxml");
                         break;
                 }
@@ -74,10 +74,12 @@ public class MainController implements Initializable {
     private void loadView(String fxml) {
         try {
             FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("/org/example/logitronapp/" + fxml));
+
             Parent root = loader.load();
             Stage stage = (Stage) btnAcceso.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

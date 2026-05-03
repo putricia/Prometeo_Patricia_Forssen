@@ -1,11 +1,17 @@
 <clientes>
     <cliente id="1">
         <fecha_alta>2024-01-10</fecha_alta>
+        <cif>B123456</cif>
+        <nombre_juridico>La paqui</nombre_juridico>
     </cliente>
     <cliente id="2">
         <fecha_alta>2024-01-15</fecha_alta>
+        <cif>B123457</cif>
+        <nombre_juridico>Hermano Garcia</nombre_juridico>
     </cliente>
     <cliente id="3">
         <fecha_alta>2025z-02-10</fecha_alta>
+        <cif>B123423</cif>
+        <nombre_juridico>Solares de Huelva</nombre_juridico>
     </cliente>
 </clientes>

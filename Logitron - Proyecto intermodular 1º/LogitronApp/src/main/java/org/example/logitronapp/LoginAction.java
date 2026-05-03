@@ -15,86 +15,45 @@ public class LoginAction {
 
     public static String validarLogin(String user, String clave) {
         try {
-            File xml_personas = new File("src/main/resources/personas.xml");
+            File xmlPersonas = new File("src/main/resources/personas.xml");
 
-            // creamos el lector de xml
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
-            Document docPersonas = builder.parse(xml_personas);
+            Document docPersonas = builder.parse(xmlPersonas);
 
             docPersonas.getDocumentElement().normalize();
 
-            // buscamos todos los nodos "persona"
             NodeList personas = docPersonas.getElementsByTagName("persona");
 
-            // definimos la variable de idPersona para poder llamarla fuera del metodo
-            String idPersona = null;
-
-            // iteramos todas las personas
             for (int i = 0; i < personas.getLength(); i++) {
-
                 Element persona = (Element) personas.item(i);
 
                 String correoXML = persona
                         .getElementsByTagName("correo")
-                        .item(0) // el primer elemento dentro de el elemento "correo"
-                        .getTextContent();
+                        .item(0)
+                        .getTextContent()
+                        .trim()
+                        .toLowerCase();
 
                 String claveXML = persona
                         .getElementsByTagName("clave")
                         .item(0)
-                        .getTextContent();
+                        .getTextContent()
+                        .trim();
 
-                // comparamos el correo del elemento con el que hace login ignoreando mayusculas y omitiendo espacios en blanco
-                if (correoXML.equals(user.trim().toLowerCase()) && claveXML.equals(clave)) {
-                    // en caso de coincidir, devolvemos el id de la persona
-                    idPersona = persona.getAttribute("id");
-                    break;
-                }
-
-            }
-
-            // si no se ha encontrado el correo, mensaje de login incorrecto
-            if (idPersona == null) {
-                return null;
-            }
-
-            // buscamos la clave del empleado que tiene el idPersona
-            File xml_empleados = new File("src/main/resources/empleados.xml");
-
-            Document docEmpleados = builder.parse(xml_empleados);
-
-            NodeList empleados = docEmpleados.getElementsByTagName("empleado");
-
-            for (int i = 0; i < empleados.getLength(); i++) {
-                Element empleado = (Element) empleados.item(i);
-
-                // ubicamos el id del elemento
-                String idEmpleado = empleado.getAttribute("id");
-                // ubicamos la clave de el elemento
-                String claveXML = empleado
-                        .getElementsByTagName("clave")
+                String rolIdXML = persona
+                        .getElementsByTagName("rolId")
                         .item(0)
-                        .getTextContent();
+                        .getTextContent()
+                        .trim();
 
-                // consultamos ademas el rol del empleado que accede
-                String rolXML = empleado
-                        .getElementsByTagName("rol")
-                        .item(0)
-                        .getTextContent();
+                if (correoXML.equals(user.trim().toLowerCase()) && claveXML.equals(clave.trim())) {
 
-                if (idEmpleado.equals(idPersona) && claveXML.equals(clave)) {
-                    return rolXML;
+                    return rolIdXML;
                 }
-
             }
 
-
-        } catch (ParserConfigurationException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (SAXException e) {
+        } catch (ParserConfigurationException | IOException | SAXException e) {
             throw new RuntimeException(e);
         }
 

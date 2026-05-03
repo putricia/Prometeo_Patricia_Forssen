@@ -4,6 +4,7 @@
         <nombre>Juan García López</nombre>
         <correo>juan.garcia@gmail.com</correo>
         <clave>juanGarcia</clave>
+        <rolId>1</rolId>
         <telefono>600123001</telefono>
         <direccion>Calle Mayor 12</direccion>
         <cp>28001</cp>
@@ -14,6 +15,7 @@
         <nombre>María Fernández Ruiz</nombre>
         <correo>maria.fernandez@gmail.com</correo>
         <clave>mariaFernandez</clave>
+        <rolId>2</rolId>
         <telefono>600123002</telefono>
         <direccion>Avenida Andalucía 45</direccion>
         <cp>41001</cp>
